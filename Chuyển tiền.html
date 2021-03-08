@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+    <style>
+        .table {
+        
+        }
+    </style>
+</head>
+<body>
+<form>
+    <table class="table">
+        <tr>
+            <th> Amount</th>
+            <th> From Currency</th>
+            <th> To Currency</th>
+        </tr>
+        <tr>
+            <td> <input type="number" name="value" id="getvalue"> </td>
+            <td>
+                <select id="From" name="FromCurrency" style="width: 100px;">
+                    <option id="VND" value="VND"> VND</option>
+                    <option id="USD" value="USD">USD </option>
+                </select>
+            </td>
+            <td>
+                <select id="To" name="ToCurrency" style="width: 100px;">
+                    <option id="toVND" value="VND"> VND</option>
+                    <option id="toUSD" value="USD">USD </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <button type="button" value="Convert" onclick="convert()">Convert</button>
+</form>
+<p id="result"> Result = </p>
+
+</body>
+<script>
+    function convert () {
+        var Value = document.getElementById("getvalue").value;
+        var FromC = document.getElementById("From").value;
+        var ToC = document.getElementById("To").value;
+        if (FromC == "VND") {
+            if (ToC == "USD") {
+                Value = Value / 23000;
+            }
+        }
+        else {
+            if (ToC == "VND") {
+                Value = Value * 23000;
+            }
+        }
+        document.getElementById("result").innerHTML = ("Result = " + Value + " " + ToC);
+    }
+</script>
+</html>
